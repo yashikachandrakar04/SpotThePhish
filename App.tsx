@@ -1,45 +1,38 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { StatusBar } from 'react-native';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import HomeScreen from './src/screens/HomeScreen';
+import GameScreen from './src/screens/GameScreen';
+import CategoryScreen from './src/screens/CategoryScreen';
+import ResultScreen from './src/screens/ResultScreen';
+import DifficultyScreen from './src/screens/DifficultyScreen';
+import DailyChallengeScreen from './src/screens/DailyChallengeScreen';
+import LeaderboardScreen from './src/screens/LeaderboardScreen';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+const Stack = createStackNavigator();
 
+const App = () => {
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <StatusBar barStyle="light-content" />
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+          cardStyle: { backgroundColor: '#0f172a' },
+        }}
+      >
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Game" component={GameScreen} />
+        <Stack.Screen name="Category" component={CategoryScreen} />
+        <Stack.Screen name="Result" component={ResultScreen} />
+        <Stack.Screen name="Difficulty" component={DifficultyScreen} />
+        <Stack.Screen name="DailyChallenge" component={DailyChallengeScreen} />
+        <Stack.Screen name="Leaderboard" component={LeaderboardScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+};
 
 export default App;

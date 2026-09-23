@@ -1,97 +1,244 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🎣 Spot the Phish
 
-# Getting Started
+A cybersecurity awareness game built with **React Native CLI** that teaches users how to identify phishing emails through interactive gameplay.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+![React Native](https://img.shields.io/badge/React%20Native-CLI-61DAFB?logo=react)
+![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-## Step 1: Start Metro
+## 📖 Overview
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+**Spot the Phish** is an educational mobile game that helps users learn to recognize phishing attempts. Players are shown realistic email samples and must decide whether each one is **PHISHING** or **LEGITIMATE** within a time limit. The game teaches real-world cybersecurity awareness by highlighting specific red flags and explaining why each suspicious element matters.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Perfect for:
 
-```sh
-# Using npm
-npm start
+- 🎓 Cybersecurity awareness training
+- 🏢 Corporate security education programs
+- 👨‍💻 Developers learning about common attack vectors
+- 🧠 Anyone wanting to protect themselves online
 
-# OR using Yarn
-yarn start
-```
+## ✨ Features
 
-## Step 2: Build and run your app
+### Core Gameplay
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+- 📧 **30+ realistic email samples** across 8 categories
+- ⏱️ **Timed challenges** — beat the clock for bonus points
+- 🎯 **Instant feedback** — see if you got it right and why
+- 📊 **Detailed explanations** — every email comes with a breakdown
 
-### Android
+### Difficulty Levels
 
-```sh
-# Using npm
-npm run android
+| Level | Time per Email | Description |
+|-------|---------------|-------------|
+| 🟢 Easy | 20 seconds | Obvious red flags |
+| 🟡 Medium | 15 seconds | Balanced challenge |
+| 🔴 Hard | 8 seconds | Subtle, tricky emails |
+| 🎲 Mixed | 12 seconds | Random emails |
 
-# OR using Yarn
-yarn android
-```
+### Email Categories
 
-### iOS
+- 🏦 **Banking** — PayPal, Chase, HDFC, Wells Fargo, Citibank
+- 💬 **Social Media** — Instagram, LinkedIn, WhatsApp, X/Twitter, Tinder
+- 💼 **Work & Corporate** — IT support, CEO fraud, HR, Microsoft 365
+- 🛒 **Shopping** — Amazon, eBay, Flipkart, Shopify
+- 💻 **Tech** — Microsoft, Google, Apple, GitHub
+- 📦 **Delivery** — FedEx, DHL, UPS
+- 🏛️ **Government** — IRS, Social Security
+- ₿ **Crypto** — Coinbase, Binance, Ledger
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+### Learning Features
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+- 🚩 **Tap-to-learn red flags** — Tap any highlighted suspicious text in an email to see why it's dangerous
+- 📝 **Detailed review screen** — Go through every email after playing
+- 💡 **Educational explanations** — Learn about typosquatting, subdomain spoofing, CEO fraud, OTP scams, and more
 
-```sh
-bundle install
-```
+### Progression & Persistence
 
-Then, and every time you update your native dependencies, run:
+- 💾 **AsyncStorage** — Saves high scores, stats, and settings locally
+- 🏆 **Leaderboard** — Top 10 personal high scores
+- 📊 **Player stats** — Games played, accuracy, total correct
+- 📅 **Daily Challenge** — 5 fresh emails every day, same for everyone
+- ⏳ **Countdown timer** — See when the next daily challenge unlocks
 
-```sh
-bundle exec pod install
-```
+### Scoring System
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+- ✅ **100 points** per correct answer
+- ⚡ **+10 bonus points** per second remaining on the timer
+- 💯 **Perfect play** can earn 250+ points per email
 
-```sh
-# Using npm
-npm run ios
+## 🚀 Getting Started
 
-# OR using Yarn
-yarn ios
-```
+### Prerequisites
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+Make sure you have completed the [React Native CLI environment setup](https://reactnative.dev/docs/environment-setup):
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+- **Node.js** ≥ 18
+- **npm** or **yarn**
+- **React Native CLI**
+- **Android Studio** (for Android development)
+- **Xcode** (for iOS development, macOS only)
+- **CocoaPods** (for iOS)
 
-## Step 3: Modify your app
+### Installation
 
-Now that you have successfully run the app, let's make changes!
+**1. Create the project**
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+    npx @react-native-community/cli init SpotThePhish
+    cd SpotThePhish
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+**2. Install dependencies**
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+    npm install @react-navigation/native @react-navigation/stack react-native-screens react-native-safe-area-context @react-native-async-storage/async-storage
 
-## Congratulations! :tada:
+**3. Install iOS pods** (macOS only)
 
-You've successfully run and modified your React Native App. :partying_face:
+    cd ios && pod install && cd ..
 
-### Now what?
+**4. Add the source files**
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+Place the source files in the `src/` folder and use `App.jsx` as the root component.
 
-# Troubleshooting
+**5. Run the app**
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+    # Android
+    npx react-native run-android
 
-# Learn More
+    # iOS
+    npx react-native run-ios
 
-To learn more about React Native, take a look at the following resources:
+## 📁 Project Structure
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+    SpotThePhish/
+    ├── App.jsx                          # Root navigation container
+    ├── src/
+    │   ├── screens/
+    │   │   ├── HomeScreen.jsx           # Main menu
+    │   │   ├── DifficultyScreen.jsx     # Difficulty selection
+    │   │   ├── CategoryScreen.jsx       # Category selection
+    │   │   ├── GameScreen.jsx           # Core gameplay
+    │   │   ├── ResultScreen.jsx         # Score & review
+    │   │   ├── LeaderboardScreen.jsx    # High scores
+    │   │   └── DailyChallengeScreen.jsx # Daily mode
+    │   ├── components/
+    │   │   ├── EmailCard.jsx            # Email display
+    │   │   ├── Timer.jsx                # Countdown bar
+    │   │   ├── HighlightedText.jsx      # Inline red flag highlights
+    │   │   └── RedFlagTag.jsx           # Tappable flag tag
+    │   ├── data/
+    │   │   ├── emails.js                # 30+ email samples
+    │   │   └── categories.js            # Categories & difficulties
+    │   └── utils/
+    │       ├── storage.js               # AsyncStorage helpers
+    │       └── dailyChallenge.js        # Daily challenge logic
+
+## 🎮 How to Play
+
+1. **Tap "Quick Play"** on the home screen
+2. **Choose a difficulty** (Easy / Medium / Hard / Mixed)
+3. **Choose a category** (or "All Categories")
+4. **Read each email carefully** — look at the sender, subject, body, and links
+5. **Decide:** Is it 🚩 PHISHING or ✅ LEGITIMATE?
+6. **Tap your answer** before the timer runs out
+7. **Review your results** — tap any card to see detailed red flags
+8. **Tap highlighted text** in the email body to learn *why* it's suspicious
+
+### Scoring Tips
+
+- ⚡ Answer fast — bonus points scale with time remaining
+- 🎯 Read carefully — the hardest emails have subtle clues
+- 📚 Review your mistakes — the explanations are the real learning
+
+## 🧠 What You'll Learn
+
+The game teaches recognition of real-world phishing techniques:
+
+- **Typosquatting** — `micros0ft.com` vs `microsoft.com`
+- **Subdomain spoofing** — `chase.com.secure-notify.net`
+- **Urgency tactics** — "Your account will be closed in 24 hours!"
+- **Fear tactics** — "Unusual sign-in from Russia"
+- **Authority pressure** — Fake IT/HR/CEO emails
+- **Generic greetings** — "Dear Customer" instead of your name
+- **Suspicious links** — Non-official domains in email bodies
+- **Credential harvesting** — Requests for passwords or OTPs
+- **Seed phrase scams** — Crypto wallet phishing
+- **Gift card scams** — CEO fraud / BEC attacks
+- **KYC fraud** — Fake bank compliance requests
+- **Prize scams** — Celebrity crypto giveaways
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|-----------|---------|
+| React Native CLI | Cross-platform mobile framework |
+| React Navigation | Screen navigation (stack) |
+| AsyncStorage | Local persistence |
+| React Hooks | State management |
+
+## 🗺️ Roadmap
+
+- [x] Difficulty levels
+- [x] Category filtering
+- [x] AsyncStorage persistence
+- [x] Daily challenge mode
+- [x] Interactive red flag highlighting
+- [x] Leaderboard
+- [ ] Sound effects
+- [ ] Haptic feedback
+- [ ] Global leaderboard (backend)
+- [ ] Email attachments simulation
+- [ ] Multiplayer / VS mode
+- [ ] Achievement system
+- [ ] Localization (multi-language)
+- [ ] Accessibility improvements
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. **Add more emails** — Open `src/data/emails.js` and add new samples with proper `redFlags` and `explanation`
+2. **Improve UI** — Polish animations, themes, or layouts
+3. **Fix bugs** — Open an issue first, then submit a PR
+4. **Translate** — Help make the game accessible in more languages
+
+### Adding a New Email
+
+Each email entry should include:
+
+- **id** — unique string identifier
+- **category** — one of: banking, social, work, shopping, tech, delivery, government, crypto
+- **difficulty** — one of: easy, medium, hard
+- **sender** — display name of the sender
+- **senderEmail** — the "from" email address
+- **subject** — email subject line
+- **body** — full email body text
+- **isPhishing** — boolean (true = phishing, false = legitimate)
+- **redFlags** — array of `{ text, reason }` objects for highlighted clues
+- **explanation** — overall explanation of why this email is phishing or legitimate
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+## ⚠️ Disclaimer
+
+All emails, sender addresses, and domains in this game are **fictional and created for educational purposes only**. Any resemblance to real emails, businesses, or individuals is coincidental. Never click links in real suspicious emails — always navigate directly to official websites.
+
+The brands mentioned (PayPal, Amazon, Microsoft, etc.) are trademarks of their respective owners and are used here for educational simulation only.
+
+## 🙏 Acknowledgments
+
+- Inspired by real-world phishing attacks and cybersecurity awareness training
+- Built with ❤️ for the security community
+- Thanks to OWASP, CISA, and other organizations publishing phishing awareness material
+
+## 📬 Contact
+
+Have questions, feedback, or want to contribute?
+
+- Open an issue on GitHub
+- Submit a pull request
+- Star ⭐ the repo if you find it useful!
+
+---
+
+**Stay safe online. Think before you click.** 🛡️
